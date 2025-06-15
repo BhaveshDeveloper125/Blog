@@ -17,7 +17,7 @@
 <body>
 
 
-    <form action="/postBlog" method="post" enctype="multipart/form-data" class="max-w-sm mx-auto">
+    <!-- <form action="/postBlog" method="post" enctype="multipart/form-data" class="max-w-sm mx-auto">
         @csrf
         <div class="mb-5">
             <label class="block mb-2 text-sm font-medium text-gray-900" for=" file_input">Select Image</label>
@@ -36,6 +36,29 @@
         </div>
 
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Submit</button>
+    </form> -->
+
+
+
+    <form action="/postBlog" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Select Image</label>
+            <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <div class="form-group">
+            <label for="author">Blog Author</label>
+            <input name="author" type="text" class="form-control" id="author" aria-describedby="emailHelp" placeholder="Author Name">
+        </div>
+        <div class="form-group">
+            <label for="title">Blog Title</label>
+            <input name="title" type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Blog Title">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea id="summernote" name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 
@@ -44,6 +67,20 @@
             $('#summernote').summernote();
         });
     </script>
+
+    @if(session('success'))
+    <script>
+        alert('Blog id published successfully');
+    </script>
+    @endif
+
+    @if(session('fail'))
+
+    <script>
+        alert('oops something went wrong , your blog did not get published');
+    </script>
+
+    @endif
 
     <!-- <script src="{{ asset('node_modules/flowbite/dist/flowbite.min.js') }}"></script> -->
 </body>
