@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::post('/postBlog', [PublishBlogs::class, 'Blogs']);
 
 Route::view('/blogs', 'DisplayBlogs');
+Route::view('/allblogs', 'AllBlogList');
