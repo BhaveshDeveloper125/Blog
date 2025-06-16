@@ -20,6 +20,11 @@ Route::get('/', function () {
 
 Route::post('/postBlog', [PublishBlogs::class, 'Blogs']);
 
-Route::view('/blogs', 'DisplayBlogs');
-Route::view('/allblogs', 'AllBlogList');
-Route::view('/aboutblog', 'AboutBlog');
+Route::get('/allblogs', [PublishBlogs::class, 'GetBlogs']);
+Route::get('/blogs/{id}', [PublishBlogs::class, 'SpecificBlog']);
+Route::get('/aboutblog/{id}', [PublishBlogs::class, 'AboutBlog']);
+
+// Route::view('/blogs', 'DisplayBlogs');
+// Route::view('/allblogs', 'AllBlogList');
+// Route::view('/aboutblog', 'AboutBlog');
+Route::view('/home', 'Home');

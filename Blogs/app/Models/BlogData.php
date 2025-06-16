@@ -14,6 +14,10 @@ class BlogData extends Model
         'image',
         'title',
         'author',
-        'content'
+        'content',
+        'tags',
+        'description',
+        'time',
+        'category'
     ];
 }

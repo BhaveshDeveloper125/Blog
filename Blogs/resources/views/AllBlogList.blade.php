@@ -9,76 +9,29 @@
 </head>
 
 <body>
+    <x-menu />
     <div class="h-full w-full  p-4">
         <div class="">All Blogs </div>
 
 
 
+
         <div class="flex flex-1 flex-wrap gap-4">
 
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
+            @forelse($blog as $i)
+            <a href="/blogs/{{ $i->id }}" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
+                <img src="{{ $i->image }}" alt="blog image" class="h-40 w-full rounded-md object-cover">
+                <div class="w-full p-4 flex justify-around"><span class="font-semibold">{{ $i->author }}</span> : <span class="font-semibold">{{ Carbon\Carbon::parse($i->created_at)->format('d-m-y') }}</span> </div>
                 <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
+                    {!! $i->content !!}
                 </p>
             </a>
+            @empty
+            <h1> This field is empty </h1>
+            @endforelse
 
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
-                <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
-                </p>
-            </a>
 
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
-                <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
-                </p>
-            </a>
 
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
-                <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
-                </p>
-            </a>
-
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
-                <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
-                </p>
-            </a>
-
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
-                <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
-                </p>
-            </a>
-
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
-                <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
-                </p>
-            </a>
-
-            <a href="/blogs" class="h-80 w-80 rounded-md shadow-lg shadow-black/50 p-2 overflow-hidden">
-                <img s src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-40 w-full object-cover">
-                <div class="w-full p-4">Bhavesh : 15-6-2025</div>
-                <p class="line-clamp-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nihil dolores repudiandae molestias incidunt dolor quibusdam expedita ratione rerum eveniet quas voluptatibus nobis quis accusantium corporis odio consectetur, veniam ab.
-                </p>
-            </a>
 
         </div>
     </div>

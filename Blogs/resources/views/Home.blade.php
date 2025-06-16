@@ -17,6 +17,7 @@
 <body>
 
 
+
     <!-- <form action="/postBlog" method="post" enctype="multipart/form-data" class="max-w-sm mx-auto">
         @csrf
         <div class="mb-5">
@@ -40,6 +41,9 @@
 
 
 
+
+
+
     <form action="/postBlog" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -57,6 +61,25 @@
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Example textarea</label>
             <textarea id="summernote" name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags(use # symbol for each tags)</label>
+            <textarea id="tags" name="tags" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description (Describe about the blog you are creating)</label>
+            <textarea id="description" name="description" class="form-control" id="description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="time">Duration(Define duration in minutes that how much time it will take to read)</label>
+            <input name="time" type="number" class="form-control" id="time" aria-describedby="emailHelp" placeholder="Define in Minutes">
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="category">Category( Describe the category of this blog such as technology, finance etc )</label>
+            <input name="category" type="text" class="form-control" id="time" aria-describedby="emailHelp" placeholder="Category">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
