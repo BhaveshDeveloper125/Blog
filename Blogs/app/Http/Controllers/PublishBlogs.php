@@ -6,60 +6,65 @@ use App\Models\BlogData;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+
 
 class PublishBlogs extends Controller
 {
+
     public function Blogs(Request $request)
     {
-
-        // return response()->json($request->all());
-
         try {
-            $validation = $request->validate([
+            $validator = Validator::make($request->all(), [
                 'image' => 'required|image|mimes:jpg,jpeg,png,webp',
                 'author' => 'required|string',
                 'title' => 'required|string',
                 'content' => 'required',
                 'tags' => 'required|string',
                 'description' => 'required',
-                'time' => 'required',
-                'category' => 'required',
+                'time' => 'required|numeric',
+                'category' => 'required|string',
             ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
 
             if ($request->hasFile('image')) {
                 $path = $request->file('image')->store('images', 'public');
-                $validation['image'] = "storage/$path";
+            } else {
+                $path = null;
             }
 
             $save = BlogData::create([
-                'image' => $validation['image'],
-                'author' => $validation['author'],
-                'title' => $validation['title'],
-                'content' => $validation['content'],
-                'tags' => $validation['tags'],
-                'description' => $validation['description'],
+                'image' => $path ? "storage/$path" : null,
+                'author' => $request->author,
+                'title' => $request->title,
+                'content' => $request->content,
+                'tags' => $request->tags,
+                'description' => $request->description,
                 'time' => $request->time,
-                'category' => $validation['category'],
+                'category' => $request->category,
             ]);
 
-            if ($save) {
-                return redirect()->back()->with(['success' => true]);
-            } else {
-                return redirect()->back()->with(['fail' => true]);
-            }
+            return redirect()->back()->with(['success' => $save ? true : false]);
         } catch (Exception $e) {
-            Log::info("Publishing Error : $e");
+            Log::error("Publishing Error: " . $e->getMessage());
+            return redirect()->back()->with(['fail' => true]);
         }
     }
 
+
     public function GetBlogs()
     {
+
+        $category = BlogData::distinct()->inRandomOrder()->limit(10)->pluck('category');
 
         $blogs = BlogData::all();
 
         $blogs = $blogs->sortByDesc('created_at');
 
-        return view('AllBlogList', ['blog' => $blogs]);
+        return view('AllBlogList', ['blog' => $blogs, 'category' => $category]);
         // return response()->json($blogs);
     }
 
@@ -75,5 +80,23 @@ class PublishBlogs extends Controller
     {
         $about = BlogData::where('id', $id)->get();
         return view('AboutBlog', ['about' => $about]);
+    }
+
+    public function Filteration(Request $request)
+    {
+
+        $validation = $request->validate([
+            'filter' => 'required|'
+        ]);
+
+
+        try {
+            $filter_array = is_array($validation['filter']) ? $validation['filter'] : [$validation['filter']];
+            $category = BlogData::whereIn('category', $filter_array)->get();
+
+            return view('Filteration', ['cat' => $category]);
+        } catch (Exception $e) {
+            Log::info('Category Fetching Search Error : ' . $e);
+        }
     }
 }

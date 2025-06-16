@@ -19,10 +19,14 @@ Route::get('/', function () {
 });
 
 Route::post('/postBlog', [PublishBlogs::class, 'Blogs']);
+Route::post('/filter', [PublishBlogs::class, 'Filteration']);
 
 Route::get('/allblogs', [PublishBlogs::class, 'GetBlogs']);
 Route::get('/blogs/{id}', [PublishBlogs::class, 'SpecificBlog']);
 Route::get('/aboutblog/{id}', [PublishBlogs::class, 'AboutBlog']);
+Route::get('/filter', action: function () {
+    return redirect('/');
+});
 
 // Route::view('/blogs', 'DisplayBlogs');
 // Route::view('/allblogs', 'AllBlogList');

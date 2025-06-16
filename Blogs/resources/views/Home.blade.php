@@ -7,7 +7,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    @vite('resources/css/app.css')
     <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
@@ -15,9 +15,6 @@
 </head>
 
 <body>
-
-
-
     <!-- <form action="/postBlog" method="post" enctype="multipart/form-data" class="max-w-sm mx-auto">
         @csrf
         <div class="mb-5">
@@ -40,12 +37,17 @@
     </form> -->
 
 
-
-
-
-
     <form action="/postBlog" method="post" enctype="multipart/form-data">
         @csrf
+        @if ($errors->any())
+        <div class="p-4 bg-red-50 border-l-4 border-red-500">
+            <ul class="mt-2 text-sm text-red-700 list-disc pl-5 space-y-1">
+                @foreach ($errors->all() as $error)
+                <li class="text-xl">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="form-group">
             <label for="exampleFormControlFile1">Select Image</label>
             <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
@@ -82,8 +84,8 @@
             <input name="category" type="text" class="form-control" id="time" aria-describedby="emailHelp" placeholder="Category">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/allblogs" type="submit" class="btn btn-primary">Read Blogs</a>
     </form>
-
 
     <script>
         $(document).ready(function() {
