@@ -8,10 +8,10 @@
     <title>Display Blog</title>
 </head>
 
-<body>
-    <div class="h-screen w-screen p-4 flex justify-center items-center">
-        <div class="h-full w-[50%] p-2  shadow-2xl shadow-black/50 overflow-auto">
-            <img src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-[50%] w-full object-cover">
+<body class="flex flex-col justify-center items-center">
+    <div class="h-fit w-full p-4 flex justify-center items-center">
+        <div class="h-full w-[50%] rounded-md p-2  shadow-2xl shadow-black/50 overflow-auto">
+            <img src="{{ url('exampleimgs/PNiEmf25aief43shQfe1cgQEqY00TeNpPpZKqv7c.jpg') }}" alt="blog image" class="h-[50%] w-full rounded-md object-cover">
             <div class="p-2 font-bold">Bhavesh : 15-6-2025 </div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi deleniti sequi sed? Molestiae dicta corporis autem ipsum est omnis repellat et consequuntur minus vitae libero officia, alias aliquid sit.
                 Id, voluptatem. Aperiam aliquam nihil, labore quasi laudantium et necessitatibus est excepturi fuga repellendus, ab eveniet ducimus cupiditate repellat commodi accusantium quos itaque eum ipsa consequatur reiciendis voluptate dolores. Corrupti!
@@ -26,22 +26,22 @@
             </p>
             <br><br>
             <div class="flex flex-wrap gap-4">
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
-                <span class="bg-gray-400 shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded shadow-sm shadow-black/50">#bhavesh</span>
             </div>
             <br><br><br><br>
             <div class="flex justify-end">
-                <a href="" class="bg-purple-500 text-white text-right p-4 ">About This Blog</a>
+                <a href="/aboutblog" class="bg-purple-500 text-white text-right p-4 ">About This Blog</a>
             </div>
         </div>
     </div>

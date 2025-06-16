@@ -22,3 +22,4 @@ Route::post('/postBlog', [PublishBlogs::class, 'Blogs']);
 
 Route::view('/blogs', 'DisplayBlogs');
 Route::view('/allblogs', 'AllBlogList');
+Route::view('/aboutblog', 'AboutBlog');
