@@ -53,16 +53,14 @@ class PublishBlogs extends Controller
     }
 
     public function uploadImage(Request $request)
-{
-    if ($request->hasFile('file')) {
-        $path = $request->file('file')->store('images', 'public');
-        return asset('storage/' . $path);
+    {
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->store('images', 'public');
+            return asset('storage/' . $path);
+        }
+
+        return response()->json(['error' => 'Upload failed'], 400);
     }
-
-    return response()->json(['error' => 'Upload failed'], 400);
-}
-
-
 
     public function GetBlogs()
     {

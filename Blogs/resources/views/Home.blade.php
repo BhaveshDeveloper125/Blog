@@ -72,7 +72,7 @@
             </div>
 
             <button type="submit" class="btn btn-success">Publish Blog</button>
-            <a href="/allblogs" class="btn btn-primary">View All Blogs</a>
+            <a href="/" class="btn btn-primary">View All Blogs</a>
         </form>
     </div>
 
