@@ -1,5 +1,4 @@
 <x-menu />
-{{ $cat }}
 
 <div class="flex flex-1 flex-wrap gap-4">
 

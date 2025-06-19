@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('Home');
 });
 
-Route::post('/postBlog', [PublishBlogs::class, 'Blogs']);
+
+Route::post('/postBlog', [PublishBlogs::class, 'Blogs'])->name('submit.blog');
+Route::post('/upload-image', [PublishBlogs::class, 'uploadImage']);
+
 Route::post('/filter', [PublishBlogs::class, 'Filteration']);
 
 Route::get('/allblogs', [PublishBlogs::class, 'GetBlogs']);
